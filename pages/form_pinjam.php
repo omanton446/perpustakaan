@@ -1,6 +1,5 @@
 <?php 
-include '../config/koneksi.php'; 
-session_start();
+require_once __DIR__ . '/../config/session.php';
 
 //Logika Ganti Bahasa
 if (isset($_GET['lang'])) {
