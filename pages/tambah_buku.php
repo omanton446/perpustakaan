@@ -63,8 +63,7 @@ $csrf_token = generateCsrfToken();
 </head>
 <body>
 
-
-<div class="container">
+<div class="container py-5"> <!-- ✅ Tambahkan py-5 agar tidak mepet -->
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
             <div class="glass-card p-4 p-md-5">
@@ -77,7 +76,6 @@ $csrf_token = generateCsrfToken();
                     <p class="text-muted">Lengkapi informasi buku di bawah ini</p>
                 </div>
 
-                <!-- ✅ FORM TANPA JAVASCRIPT VALIDASI -->
                 <form action="../proses/proses.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                     <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
                     

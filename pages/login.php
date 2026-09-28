@@ -109,16 +109,16 @@ if (isset($_POST['login'])) {
             
             <!-- Password -->
             <div class="mb-3">
-                <label class="form-label small fw-bold">Password</label>
-                <div style="position: relative;">
-                    <input type="password" name="password" id="loginPassword" class="form-control" 
-                           placeholder="••••••••" required style="padding-right: 40px;">
-                    <button type="button" onclick="togglePassword('loginPassword', this)" 
-                            class="password-toggle">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-            </div>
+    <label class="form-label small fw-bold">Password</label>
+    <div class="position-relative"> <!-- ✅ Gunakan position-relative -->
+        <input type="password" name="password" id="loginPassword" class="form-control" 
+               placeholder="••••••••" required style="padding-right: 40px;">
+        <button type="button" onclick="togglePassword('loginPassword', this)" 
+                class="password-toggle" style="z-index: 5;"> <!-- ✅ Tambah z-index -->
+            <i class="fas fa-eye"></i>
+        </button>
+    </div>
+</div>
             
             <button type="submit" name="login" class="btn btn-primary w-100 fw-bold">Masuk Sekarang</button>
         </form>

@@ -242,28 +242,28 @@ if (!empty($gambar_db)) {
                             </span>
                         </td>
                         <td>
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-sm btn-outline-info rounded-pill" 
-                                    onclick="lihatDetail('<?= addslashes($judul) ?>', '<?= addslashes($pengarang) ?>', '<?= addslashes($data['kategori'] ?? $text['tidak_ada_kategori'] ?? 'Tidak ada') ?>', '<?= $data['stok'] ?>', '<?= addslashes($gambar) ?>', '<?= addslashes($deskripsi) ?>')" 
-                                    title="<?= $text['detail'] ?>">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <?php if ($role === 'admin') : ?>
-                                    <a href="edit_buku.php?id=<?= $id ?>" class="btn btn-sm btn-outline-warning rounded-pill" title="<?= $text['edit'] ?>"><i class="fas fa-edit"></i></a>
-                                    <a href="javascript:void(0)" onclick="hapusBuku('<?= $id ?>', '<?= addslashes($judul) ?>')" class="btn btn-sm btn-outline-danger rounded-pill" title="<?= $text['hapus'] ?>"><i class="fas fa-trash"></i></a>
-                                <?php else : ?>
-    <?php if ($data['stok'] > 0) : ?>
-        <a href="form_pinjam.php?id=<?= $id ?>" class="btn btn-success btn-sm rounded-pill px-3">
-            <i class="fas fa-hand-holding me-1"></i> <?= $text['pinjam'] ?>
-        </a>
-    <?php else : ?>
-        <button class="btn btn-secondary btn-sm rounded-pill px-3" disabled title="<?= $text['stok_habis'] ?>">
-            <i class="fas fa-hand-holding me-1"></i> <?= $text['stok_habis'] ?>
+    <div class="d-flex flex-wrap gap-1"> <!-- ✅ Ubah gap-2 jadi gap-1 dan tambah flex-wrap -->
+        <button class="btn btn-sm btn-outline-info rounded-pill" 
+            onclick="lihatDetail('<?= addslashes($judul) ?>', '<?= addslashes($pengarang) ?>', '<?= addslashes($data['kategori'] ?? $text['tidak_ada_kategori'] ?? 'Tidak ada') ?>', '<?= $data['stok'] ?>', '<?= addslashes($gambar) ?>', '<?= addslashes($deskripsi) ?>')" 
+            title="<?= $text['detail'] ?>">
+            <i class="fas fa-eye"></i>
         </button>
-    <?php endif; ?>
-<?php endif; ?>
-                            </div>
-                        </td>
+        <?php if ($role === 'admin') : ?>
+            <a href="edit_buku.php?id=<?= $id ?>" class="btn btn-sm btn-outline-warning rounded-pill" title="<?= $text['edit'] ?>"><i class="fas fa-edit"></i></a>
+            <a href="javascript:void(0)" onclick="hapusBuku('<?= $id ?>', '<?= addslashes($judul) ?>')" class="btn btn-sm btn-outline-danger rounded-pill" title="<?= $text['hapus'] ?>"><i class="fas fa-trash"></i></a>
+        <?php else : ?>
+            <?php if ($data['stok'] > 0) : ?>
+                <a href="form_pinjam.php?id=<?= $id ?>" class="btn btn-success btn-sm rounded-pill px-3">
+                    <i class="fas fa-hand-holding me-1"></i> <?= $text['pinjam'] ?>
+                </a>
+            <?php else : ?>
+                <button class="btn btn-secondary btn-sm rounded-pill px-3" disabled title="<?= $text['stok_habis'] ?>">
+                    <i class="fas fa-hand-holding me-1"></i> <?= $text['stok_habis'] ?>
+                </button>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
+</td>
                     </tr>
                     <?php endwhile; else : ?>
                     <tr>
